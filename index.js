@@ -1,4 +1,4 @@
-import utm from 'utm-bugfix'
+import utm from 'utm'
 
 export default function(input) {
   let parsingFunc = pickParser(input)
