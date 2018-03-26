@@ -1,6 +1,6 @@
 {
   "name": "parse-coords",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Parse string coordinates",
   "main": "index.js",
   "scripts": {

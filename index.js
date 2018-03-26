@@ -1,6 +1,6 @@
-import utm from 'utm'
+const utm = require('utm')
 
-export default function(input) {
+module.exports = function(input) {
   let parsingFunc = pickParser(input)
   return parsingFunc(input)
 }
