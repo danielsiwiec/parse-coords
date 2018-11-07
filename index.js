@@ -6,7 +6,7 @@ const parsers = [
     parser: fromDecimalDegrees
   },
   {
-    regex: /^[-+]?\d+ \d+(\.\d+)?,?\s*[-+]?\d+ \d+(\.\d+)?$/,
+    regex: /^[-+]?\d+°? \d+(\.\d+)?'?,?\s*[-+]?\d+°? \d+(\.\d+)?'?$/,
     parser: fromDecimalMinutes
   },
   {

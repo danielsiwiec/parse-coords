@@ -24,6 +24,14 @@ describe('coordinates', () => {
       expect(coordinates('41 24.2028 2 10.4418')).toEqual({ lat: 41.40338, lng: 2.17403 })
     })
 
+    it('should recognize coordinates with degree and minute symbol, without a comma', () => {
+      expect(coordinates(`41° 24.2028' 2° 10.4418'`)).toEqual({ lat: 41.40338, lng: 2.17403 })
+    })
+
+    it('should recognize coordinates with degree and minute symbol, with a comma', () => {
+      expect(coordinates(`41° 24.2028', 2° 10.4418'`)).toEqual({ lat: 41.40338, lng: 2.17403 })
+    })
+
     it('should recognize negative coordinates', () => {
       expect(coordinates('-41 24.2028, -2 10.4418')).toEqual({ lat: -41.40338, lng: -2.17403 })
     })
