@@ -6,7 +6,7 @@ const parsers = [
     parser: fromDecimalDegrees
   },
   {
-    regex: /^[-+]?\d+°? \d+(\.\d+)?'?,?\s*[-+]?\d+°? \d+(\.\d+)?'?$/,
+    regex: /^[-+]?\d+(°|° | )\d+(\.\d+)?'?,?\s*[-+]?\d+(°|° | )\d+(\.\d+)?'?$/,
     parser: fromDecimalMinutes
   },
   {
@@ -33,7 +33,7 @@ function fromDecimalDegrees (input) {
 }
 
 function fromDecimalMinutes (input) {
-  let coordinates = input.replace(',', ' ').replace(/\s+/g, ' ').split(' ')
+  let coordinates = input.replace(',', ' ').replace(/°/g, ' ').replace(/\s+/g, ' ').split(' ')
   let lat = [coordinates[0], coordinates[1]]
   let lng = [coordinates[2], coordinates[3]]
 
