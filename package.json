@@ -4,7 +4,7 @@
   "description": "Parse string coordinates",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-preset-es2015": "^6.9.0",
-    "jasmine": "^2.4.1"
+    "jest": "^23.6.0"
   },
   "babel": {
     "presets": [
