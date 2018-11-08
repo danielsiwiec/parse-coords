@@ -1,20 +1,39 @@
 const utm = require('utm')
+const RegexBuilder = require('./RegexBuilder')
 
 const parsers = [
   {
-    regex: /^[-+]?\d+(\.\d+)?,?\s*[-+]?\d+(\.\d+)?$/,
+    regex: new RegexBuilder()
+      .plusMinus().decimalNumber()
+      .comma()
+      .plusMinus().decimalNumber()
+      .build(),
     parser: fromDecimalDegrees
   },
   {
-    regex: /^[-+]?\d+(°|° | )\d+(\.\d+)?'?,?\s*[-+]?\d+(°|° | )\d+(\.\d+)?'?$/,
+    regex: new RegexBuilder()
+      .plusMinus().integer().degreeOption().decimalNumber().minuteOption()
+      .comma()
+      .plusMinus().integer().degreeOption().decimalNumber().minuteOption()
+      .build(),
     parser: fromDecimalMinutes
   },
   {
-    regex: /^\d+°\d+'\d+(\.\d+)?"\s*[NS]\s*\d+°\d+'\d+(\.\d+)?"\s*[EW]$/,
+    regex: new RegexBuilder()
+      .integer().degreeOption().integer().minuteOption().decimalNumber().secondOption().whiteSpace().with('[NS]')
+      .whiteSpace()
+      .integer().degreeOption().integer().minuteOption().decimalNumber().secondOption().whiteSpace().with('[EW]')
+      .build(),
     parser: fromMinutesSeconds
   },
   {
-    regex: /^\d{2}[C-X] \d+(\.\d+)? \d+(\.\d+)?$/,
+    regex: new RegexBuilder()
+      .integer(2).with('[C-X]')
+      .whiteSpace()
+      .decimalNumber()
+      .whiteSpace()
+      .decimalNumber()
+      .build(),
     parser: fromUtm
   }
 ]
