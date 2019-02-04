@@ -2,11 +2,13 @@
 
 Parse DD, DDM, DMS or UTM coordinates into a `{lat, long}`
 
-## Usage
+## Installing
 
 ```
 npm install --save parse-coords
 ```
+
+## Example
 
 ```javascript
 import coordinates from 'parse-coords'
@@ -19,3 +21,18 @@ coordinates('31T 430959.5858286716 4583866.770942634') // {lat: 41.40338, lng: 2
 
 coordinates('foo N bar S') // null
 ```
+
+## API
+
+`coordinates(string)`
+
+#### Parameters
+`string` - represents the coordinates in one of the formats - DD, DDM, DMS or UTM
+
+#### Returns
+`{lat, lng}` - an object containing `lat` and `lng` fields, represented in Decimal Degrees format.
+
+
+## Handling Errors
+
+If the string passed in is in an unrecognized format, `null` is returned.
