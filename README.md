@@ -22,6 +22,13 @@ coordinates('31T 430959.5858286716 4583866.770942634') // {lat: 41.40338, lng: 2
 coordinates('foo N bar S') // null
 ```
 
+## Input sanitation
+
+The library makes the best effort to understand the input. Where makes sense:
+- commas are optional
+- spaces are optional
+- degree, minute, second symbols are optional
+
 ## API
 
 `coordinates(string)`
